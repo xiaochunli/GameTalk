@@ -70,9 +70,9 @@
         UIAlertAction* tInviteAction = [UIAlertAction actionWithTitle:@"发出邀请" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
             UITextField* tInviteField = [tAlertController.textFields lastObject];
             if ([tInviteField.text length] <=6) {
-                [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:@"邀请的用户名称错误" AferTime:3 containerView:self.view];
+                [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:@"邀请的用户名称错误" titleText:@"错误" AferTime:3 containerView:self.view];
             }else{
-                [self funcInviteGroupOper:tInviteField.text  GroupName:@"同城捡肥皂"];
+                [self funcInviteGroupOper:tInviteField.text  GroupName:@"5459e29fe4b0b14db2b72a04"];
             }
             [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
                 
@@ -81,13 +81,11 @@
         [tAlertController addAction:tCancelAction];
         [tAlertController addAction:tInviteAction];
     }else{
-        UIAlertView* tInputView = [[UIAlertView alloc] initWithTitle:@"邀请用户" message:@"请输入被邀请的用户名：\r\n" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"发送邀请", nil];
+        UIAlertView* tInputView = [[UIAlertView alloc] initWithTitle:@"邀请用户" message:@"请输入被邀请的用户名：" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"发送邀请", nil];
         tInputView.tag =InviteAlertViewTag;
+        tInputView.alertViewStyle = UIAlertViewStylePlainTextInput;
         [tInputView show];
     }
-    
-    
-
 }
 #pragma mark-
 #pragma mark UIAlertViewDelegate
@@ -99,23 +97,15 @@
             
         }else if(buttonIndex == 1){
             //发送邀请
+            UITextField* tInputField = [alertView textFieldAtIndex:0];
+            if ([tInputField.text length] <=6) {
+                [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:@"邀请的用户名称错误" titleText:@"错误" AferTime:3 containerView:self.view];
+            }else{
+                [self funcInviteGroupOper:tInputField.text  GroupName:@"同城捡肥皂"];
+            }
         }
         alertView.delegate =nil;
     }
-}
-- (void)willPresentAlertView:(UIAlertView *)alertView
-{
-    
-    
-}
-- (void)didPresentAlertView:(UIAlertView *)alertView
-{
-    UITextField* tTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 30, 200, 30)];;
-    tTextField.borderStyle  = UITextBorderStyleRoundedRect;
-    for (id objects in [alertView subviews]) {
-        NSLog(@"%@",[objects description]);
-    }
-    [alertView addSubview:tTextField];
 }
 
 
@@ -159,25 +149,31 @@
                   GroupName:(NSString*) groupName
 {
     NSLog(@"%s",__PRETTY_FUNCTION__);
-    [[AVOS_IM_Manager shareInstance] inviteUserToGroup:userName GroupName:groupName success:^{
-        NSLog(@"ok");
+    [[AVOS_IM_Manager shareInstance] inviteUserToGroup:userName GroupId:groupName success:^{
+        [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:nil titleText:@"邀请成功" AferTime:3 containerView:self.view];
     } failure:^(IMErrorType failType) {
         switch ((int)failType) {
             case IMErrorType_InviteUserJoinGroup_GroupNotExist:
             {
-                [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:@"群组不存在" AferTime:3 containerView:self.view];
+                [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:@"群组不存在" titleText:@"错误" AferTime:3 containerView:self.view];
             }
                 break;
             case IMErrorType_InviteUserJoinGroup_UserExist:
             {
-                [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:@"用户已近加入该群" AferTime:3 containerView:self.view];
+                [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:@"用户已近加入该群" titleText:@"错误" AferTime:3 containerView:self.view];
             }
                 break;
             case IMErrorType_InviteUserJoinGroup_IsSelf:
             {
-                [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:@"不可邀请自己" AferTime:3 containerView:self.view];
+                [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:@"不可邀请自己" titleText:@"错误" AferTime:3 containerView:self.view];
             }
                 break;
+            case IMErrorType_InviteUserJoinGroup_InviteNotExist:
+            {
+                [(MBProManager*)[MBProManager shareInstance] showHubAutoDiss:@"用户不存在" titleText:@"错误" AferTime:3 containerView:self.view];
+            }
+                break;
+                
         }
     }];
 }

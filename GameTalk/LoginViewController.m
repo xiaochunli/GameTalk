@@ -25,12 +25,12 @@
 {
     AppDelegate* tAppDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
     if ([userNameField.text length] <= 6) {
-        [[MBProManager shareInstance] showHubAutoDiss:@"用户名不能小于6位" AferTime:3 containerView:tAppDel.window];
+        [[MBProManager shareInstance] showHubAutoDiss:@"用户名不能小于6位" titleText:@"输入错误" AferTime:3 containerView:tAppDel.window];
         return;
     }
     
     if ([passwordField.text length] <= 6) {
-        [[MBProManager shareInstance] showHubAutoDiss:@"密码不能小于6位" AferTime:3 containerView:tAppDel.window];
+        [[MBProManager shareInstance] showHubAutoDiss:@"密码不能小于6位" titleText:@"输入错误" AferTime:3 containerView:tAppDel.window];
         return;
     }
     
@@ -49,9 +49,9 @@
             long errorCode = [[[error userInfo] objectForKey:@"code"] longValue];
             AppDelegate* tAppDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
             if (errorCode == 210) {
-                [[MBProManager shareInstance] showHubAutoDiss:@"输入的密码错误" AferTime:3 containerView:tAppDel.window];
+                [[MBProManager shareInstance] showHubAutoDiss:@"输入的密码错误" titleText:@"请求错误" AferTime:3 containerView:tAppDel.window];
             } else if (errorCode == 211) {
-                [[MBProManager shareInstance] showHubAutoDiss:@"用户不存在" AferTime:3 containerView:tAppDel.window];
+                [[MBProManager shareInstance] showHubAutoDiss:@"用户不存在" titleText:@"请求错误" AferTime:3 containerView:tAppDel.window];
             }
         }
         [SVProgressHUD dismiss];

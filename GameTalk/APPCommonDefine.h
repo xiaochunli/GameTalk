@@ -42,15 +42,16 @@
  群组名称表
  */
 #define ObjectClass_RealtimeGroups @"AVOSRealtimeGroups"
+#define RealtimeGroups_GroupName @"GName"
 
-/*GroupName class
+
+/*GroupRecord class
  群组名称表
  */
-#define ObjectClass_GroupName @"GroupName"
-#define GroupName_KeyGName @"GName"
-#define GroupName_KeyGroupId @"GroupId"
-
-
+#define ObjectClass_GroupRecord @"GroupRecord"
+#define GroupRecord_FromUserName @"FromUserName"
+#define GroupRecord_RecUserName @"RecUserName"
+#define GroupRecord_GroupId @"GroupId"
 
 /*UserWatchs class
  用户关注表

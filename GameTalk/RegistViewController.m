@@ -22,17 +22,17 @@
 {
     AppDelegate* tAppDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
     if ([userNameField.text length] <= 6) {
-        [[MBProManager shareInstance] showHubAutoDiss:@"用户名不能小于6位" AferTime:3 containerView:tAppDel.window];
+        [[MBProManager shareInstance] showHubAutoDiss:@"用户名不能小于6位" titleText:@"输入错误" AferTime:3 containerView:tAppDel.window];
         return;
     }
     
     if ([passwordField.text length] <= 6) {
-        [[MBProManager shareInstance] showHubAutoDiss:@"密码不能小于6位" AferTime:3 containerView:tAppDel.window];
+        [[MBProManager shareInstance] showHubAutoDiss:@"密码不能小于6位" titleText:@"输入错误" AferTime:3 containerView:tAppDel.window];
         return;
     }
     
     if (![passwordField.text isEqualToString:repeatPWField.text]) {
-        [[MBProManager shareInstance] showHubAutoDiss:@"密码输入的不同" AferTime:3 containerView:tAppDel.window];
+        [[MBProManager shareInstance] showHubAutoDiss:@"密码输入的不同" titleText:@"输入错误" AferTime:3 containerView:tAppDel.window];
         return;
     }
     
@@ -53,7 +53,7 @@
             //Something bad has ocurred
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             AppDelegate* tAppDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
-            [[MBProManager shareInstance] showHubAutoDiss:errorString AferTime:3 containerView:tAppDel.window];
+            [[MBProManager shareInstance] showHubAutoDiss:errorString titleText:@"登录错误" AferTime:3 containerView:tAppDel.window];
         }
         [SVProgressHUD dismiss];
     }];

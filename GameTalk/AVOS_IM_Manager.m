@@ -84,15 +84,11 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
     }];
 //    [self addWatchGroup:@"5451c4c9e4b0e9dff2f9d053"];
 //    [self createGroupName:@"同城捡肥皂" success:^{
-//        [self addWatchGroup:@"同城捡肥皂" success:^{
-//            
-//        } failure:^(IMErrorType failType) {
-//            
-//        }];
+//        
 //    } failure:^(IMErrorType failType) {
 //        
 //    }];
-//    [self addWatchGroup:@"5451d593e4b0978ad98db85d" success:^{
+//    [self addWatchGroup:@"5459e2ade4b0ccf24ecd2c3a" success:^{
 //        
 //    } failure:^(IMErrorType failType) {
 //        
@@ -194,12 +190,12 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
         [AVQuery doCloudQueryInBackgroundWithCQL:tCQLStr callback:^(AVCloudQueryResult *result, NSError *error) {
             if (error == nil) {
                 for (AVObject* groupObject in result.results) {
-                    AVObject* tGroupNameObject= [groupObject objectForKey:UserWatchs_KeyWatchGroup];
-                    NSString* tInCQLStr = [NSString stringWithFormat:@"select * from %@ where %@='%@'",ObjectClass_GroupName,Object_Id,tGroupNameObject.objectId];
+                    AVObject* tGroupObject= [groupObject objectForKey:UserWatchs_KeyWatchGroup];
+                    NSString* tInCQLStr = [NSString stringWithFormat:@"select * from %@ where %@='%@'",ObjectClass_RealtimeGroups,Object_Id,tGroupObject.objectId];
                     [AVQuery doCloudQueryInBackgroundWithCQL:tInCQLStr callback:^(AVCloudQueryResult *result, NSError *error) {
                         if (error == nil) {
                             if ([result.results count] == 1) {
-                                AVObject* tGroup = [[result.results lastObject] objectForKey:GroupName_KeyGroupId];
+                                AVObject* tGroup = [result.results lastObject];
                                 AVGroup* tExistGroup = [AVGroup getGroupWithGroupId:tGroup.objectId session:_session];
                                 [tExistGroup join];
                             }else{
@@ -392,7 +388,7 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
  *关注某个组
  @Param watchId 唯一的组ID
  */
--(void) addWatchGroup:(NSString*)groupName
+-(void) addWatchGroup:(NSString*)groupId
               success:(void (^)())success
               failure:(void (^)(IMErrorType failType))failure
 {
@@ -401,7 +397,7 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
         return;
     }
     //组是否存在
-    [self isGroupIdIsExisted:groupName queryRes:^(QueryResultType queryResult,AVObject* group) {
+    [self isGroupIdIsExisted:groupId queryRes:^(QueryResultType queryResult,AVObject* group) {
         switch (queryResult) {
             case QueryResult_Yes:
             {
@@ -416,10 +412,9 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
                     [tUserWatchs saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                         if (succeeded) {
                             if (error == nil) {
-                                NSLog(@"save new GroupWatch class done %@",groupName);
+                                NSLog(@"save new GroupWatch class done %@",groupId);
                                 //AVOSRealGroup 成员加入消息发出
-                                AVObject* tRealGroup = [group objectForKey:GroupName_KeyGroupId];
-                                AVGroup* tGroup= [AVGroup getGroupWithGroupId:tRealGroup.objectId session:_session];
+                                AVGroup* tGroup= [AVGroup getGroupWithGroupId:group.objectId session:_session];
                                 [tGroup join];
                                 success();
                             }else{
@@ -452,7 +447,7 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
  *取消关注某个组(退出组)
  @Param groupName 唯一的组ID
  */
--(void) unWatchGroup:(NSString*)groupName
+-(void) unWatchGroup:(NSString*)groupId
              success:(void (^)())success
              failure:(void (^)(IMErrorType failType))failure
 {
@@ -461,18 +456,17 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
         return;
     }
     //组是否存在
-    [self isGroupIdIsExisted:groupName queryRes:^(QueryResultType queryResult,AVObject* group) {
+    [self isGroupIdIsExisted:groupId queryRes:^(QueryResultType queryResult,AVObject* group) {
         switch (queryResult) {
             case QueryResult_Yes:
             {
                 if (group) {
                     //组是存在的
-                    AVObject* tRealGroup = [group objectForKey:GroupName_KeyGroupId];
-                    NSArray* tMembersArr = [tRealGroup objectForKey:ObjectGroup_Member];
+                    NSArray* tMembersArr = [group objectForKey:ObjectGroup_Member];
+                    //是组的成员
                     if ([tMembersArr containsObject:m_AVUser.username]) {
-                        //是组的成员
-                        NSString* tCQLStr = [NSString stringWithFormat:@"select * from %@ where %@='%@' and %@=pointer('%@','%@')",ObjectClass_UserWatchs,UserWatchs_KeyUserName,m_AVUser.username,UserWatchs_KeyWatchGroup,ObjectClass_GroupName,group.objectId];
-                        [AVQuery doCloudQueryInBackgroundWithCQL:tCQLStr callback:^(AVCloudQueryResult *result, NSError *error) {
+                        NSString* tQueryUserWatchs = [NSString stringWithFormat:@"select * from %@ where %@='%@' and %@='%@'",ObjectClass_UserWatchs,UserWatchs_KeyWatchGroup,group.objectId,UserWatchs_KeyUserName,m_AVUser.username];
+                        [AVQuery doCloudQueryInBackgroundWithCQL:tQueryUserWatchs callback:^(AVCloudQueryResult *result, NSError *error) {
                             if (error == nil) {
                                 if ([result.results count] == 1) {
                                     //UserWatch 记录删除
@@ -480,8 +474,7 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
                                     [tUserWatch deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                         if (error == nil && succeeded) {
                                             //AVOSRealGroup 成员退出消息发出
-                                            AVObject* tRealGroup = [group objectForKey:GroupName_KeyGroupId];
-                                            AVGroup* tGroup= [AVGroup getGroupWithGroupId:tRealGroup.objectId session:_session];
+                                            AVGroup* tGroup= [AVGroup getGroupWithGroupId:group.objectId session:_session];
                                             [tGroup quit];
                                             success();
                                             NSLog(@"quit group success");
@@ -542,43 +535,30 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
             [AVQuery doCloudQueryInBackgroundWithCQL:tCQLStr callback:^(AVCloudQueryResult *result, NSError *error) {
                 if (error == nil) {
                     if ([result.results count] == 1) {
-                        __block AVObject*  tPointerObject =[result.results lastObject];
-                        NSString* tInCQLStr = [NSString stringWithFormat:@"select count(*) from %@ where %@='%@'",ObjectClass_GroupName,GroupName_KeyGroupId,group.groupId];
-                        [AVQuery doCloudQueryInBackgroundWithCQL:tInCQLStr callback:^(AVCloudQueryResult *result, NSError *error) {
-                            if (error == nil) {
-                                if (result.count == 0) {
-                                    AVObject* tGroupName = [AVObject objectWithClassName:ObjectClass_GroupName];
-                                    NSString* tSaveName = name;
-                                    if ([tSaveName length] <= 0) {
-                                        tSaveName = @"";
-                                    }
-                                    [tGroupName setObject:tSaveName forKey:GroupName_KeyGName];
-                                    [tGroupName setObject:tPointerObject forKey:GroupName_KeyGroupId];
-                                    [tGroupName saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                                        if (succeeded) {
-                                            if (error == nil) {
-                                                NSLog(@"save new groupname class done %@,%@",group.groupId,name);
-                                                //AVOSRealGroup 成员加入消息发出
-                                                AVGroup* tGroup= [AVGroup getGroupWithGroupId:group.groupId session:_session];
-                                                [tGroup join];
-                                                success();
-                                            }else{
-                                                NSLog(@"save new groupname class fail error:%@",[error description]);
-                                                failure(IMErrorType_CreateGroupNameSaveFail);
-                                            }
+                        AVObject*  tPointerObject =[result.results lastObject];
+                        [tPointerObject setObject:name forKey:RealtimeGroups_GroupName];
+                        [tPointerObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (error == nil&& succeeded) {
+                                [tPointerObject refresh];
+                                //增加关注记录
+                                AVObject* tUserWatchs = [AVObject objectWithClassName:ObjectClass_UserWatchs];
+                                [tUserWatchs setObject:m_AVUser.username forKey:UserWatchs_KeyUserName];
+                                [tUserWatchs setObject:tPointerObject forKey:UserWatchs_KeyWatchGroup];
+                                [tUserWatchs saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                    if (succeeded) {
+                                        if (error == nil) {
+                                            success();
                                         }else{
-                                            NSLog(@"save new groupname class fail error:%@",[error description]);
+                                            NSLog(@"save new GroupWatch class fail error:%@",[error description]);
                                             failure(IMErrorType_CreateGroupNameSaveFail);
                                         }
-                                    }];
-                                }else{
-                                    //已经存在
-                                    NSLog(@"GroupId is existed");
-                                    failure(IMErrorType_CreateGroupNameExist);
-                                }
+                                    }else{
+                                        NSLog(@"save new UserWatchs class fail error:%@",[error description]);
+                                        failure(IMErrorType_CreateGroupNameSaveFail);
+                                    }
+                                }];
                             }else{
-                                NSLog(@"CQL error %@",[error description]);
-                                failure(IMErrorType_CreateGroupNameQueryFail);
+                                failure(IMErrorType_CreateGroupNameSaveFail);
                             }
                         }];
                     }else{
@@ -600,7 +580,7 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
  @Param toGroupName  小组名称
  */
 -(void) inviteUserToGroup:(NSString*) inviteUserName
-                GroupName:(NSString*) toGroupName
+                GroupId:(NSString*) toGroupid
                   success:(void (^)())success
                   failure:(void (^)(IMErrorType failType))failure
 {
@@ -612,22 +592,43 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
         failure(IMErrorType_InviteUserJoinGroup_IsSelf);
         return;
     }
-    //小组存在并且用户未加入过
-    [self isGroupIdIsExisted:toGroupName queryRes:^(QueryResultType queryResult, AVObject *group) {
-        if (group) {
-            AVObject*  tRealGroup = [group objectForKey:GroupName_KeyGroupId];
-            NSArray* tMembersArr= [self queryGroupPeers:tRealGroup.objectId];
-            if ([tMembersArr containsObject:inviteUserName]) {
-                //已经在组内
-                failure(IMErrorType_InviteUserJoinGroup_UserExist);
+    //用户是否存在
+    [self userIsExist:inviteUserName success:^(AVUser *queryUser) {
+        //小组存在并且用户未加入过
+        [self isGroupIdIsExisted:toGroupid queryRes:^(QueryResultType queryResult, AVObject *group) {
+            if (group) {
+                NSArray* tMembersArr= [self queryGroupPeers:group.objectId];
+                if ([tMembersArr containsObject:inviteUserName]) {
+                    //已经在组内
+                    failure(IMErrorType_InviteUserJoinGroup_UserExist);
+                }else{
+                    //保存邀请提醒
+                    AVObject* tGroupRecord = [AVObject objectWithClassName:ObjectClass_GroupRecord];
+                    [tGroupRecord setObject:m_AVUser.username forKey:GroupRecord_FromUserName];
+                    [tGroupRecord setObject:inviteUserName forKey:GroupRecord_RecUserName];
+                    [tGroupRecord setObject:toGroupid forKey:GroupRecord_GroupId];
+                    [tGroupRecord saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (succeeded && error == nil) {
+                            //发出邀请
+                            AVGroup* tInviteGroup =[AVGroup getGroupWithGroupId:group.objectId session:_session];
+                            [tInviteGroup invitePeerIds:@[inviteUserName]];
+                            success();
+                        }else{
+                            failure(IMErrorType_InviteUserJoinGroup_Fail);
+                        }
+                    }];
+                }
             }else{
-                AVGroup* tInviteGroup =[AVGroup getGroupWithGroupId:tRealGroup.objectId session:_session];
-                [tInviteGroup invitePeerIds:@[inviteUserName]];
-                success();
+                failure(IMErrorType_InviteUserJoinGroup_GroupNotExist);
             }
+        }];
+    } failure:^(IMErrorType failType) {
+        if (failType == IMErrorType_QueryUserExistIsNot) {
+            failure(IMErrorType_InviteUserJoinGroup_InviteNotExist);
         }else{
-            failure(IMErrorType_InviteUserJoinGroup_GroupNotExist);
+            failure(IMErrorType_InviteUserJoinGroup_Fail);
         }
+        return ;
     }];
 }
 
@@ -649,21 +650,16 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
  @Param groupName 已存在的groupName
  @Return
  */
--(void) isGroupIdIsExisted:(NSString*)groupName
+-(void) isGroupIdIsExisted:(NSString*)groupId
                 queryRes:(void (^)(QueryResultType queryResult,AVObject* group))qResult
 {
     
-    NSString* tCQLStr = [NSString stringWithFormat:@"select include %@,* from %@ where %@='%@'",GroupName_KeyGroupId,ObjectClass_GroupName,GroupName_KeyGName,groupName];
+    NSString* tCQLStr = [NSString stringWithFormat:@"select * from %@ where %@='%@'",ObjectClass_RealtimeGroups,Object_Id,groupId];
     [AVQuery doCloudQueryInBackgroundWithCQL:tCQLStr callback:^(AVCloudQueryResult *result, NSError *error) {
         if (error == nil) {
             if ([result.results count] == 1) {
-                AVObject* tGroupObject = [result.results lastObject];
-                AVObject* tRealGroup = [tGroupObject objectForKey:GroupName_KeyGroupId];
-                if(tRealGroup){
-                    qResult(QueryResult_Yes,tGroupObject);
-                }else{
-                    qResult(QueryResult_No,nil);
-                }
+                AVObject* tRealGroup = [result.results lastObject];
+                qResult(QueryResult_Yes,tRealGroup);
             }else{
                 qResult(QueryResult_No,nil);
             }
@@ -673,14 +669,16 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
     }];
 }
 
-
 /**
- *查看用户所有的会话
+ *查看用户所有的会话 (unused)
  */
 -(void) getUserAllWatchs:(void (^)(NSArray* allWatchsArr))success
                  failure:(void (^)(IMErrorType failType))failure
 {
     
 }
+
+
+
 
 @end

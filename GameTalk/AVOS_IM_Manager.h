@@ -52,6 +52,8 @@ typedef enum{
     IMErrorType_InviteUserJoinGroup_GroupNotExist,//邀请用户加入群--群不存在
     IMErrorType_InviteUserJoinGroup_UserExist,//邀请用户加入群--已在群内
     IMErrorType_InviteUserJoinGroup_IsSelf,//邀请用户加入群--不可邀请自己
+    IMErrorType_InviteUserJoinGroup_InviteNotExist,//邀请用户加入群--被邀请用户不存在
+    IMErrorType_InviteUserJoinGroup_Fail,//邀请用户加入群--失败
 }IMErrorType;
 
 @interface AVOS_IM_Manager : NSObject<AVSessionDelegate,AVGroupDelegate,AVSignatureDelegate>
@@ -107,7 +109,7 @@ typedef enum{
  *群组是否存在
  @Param groupName 已存在的groupName
  */
--(void) isGroupIdIsExisted:(NSString*)groupName
+-(void) isGroupIdIsExisted:(NSString*)groupId
                   queryRes:(void (^)(QueryResultType queryResult,AVObject* group))qResult;
 
 /**
@@ -122,7 +124,7 @@ typedef enum{
  *关注某个组
  @Param groupId 唯一的组ID
  */
--(void) addWatchGroup:(NSString*)groupName
+-(void) addWatchGroup:(NSString*)groupId
               success:(void (^)())success
               failure:(void (^)(IMErrorType failType))failure;
 
@@ -130,17 +132,17 @@ typedef enum{
  *取消关注某个组
  @Param groupId 唯一的组ID
  */
--(void) unWatchGroup:(NSString*)groupName
+-(void) unWatchGroup:(NSString*)groupId
              success:(void (^)())success
              failure:(void (^)(IMErrorType failType))failure;
 
 /**
- *获得某小组内的成员
+ *邀请加入某小组
  @Param inviteUserName 被邀请人名称
  @Param toGroupName  小组名称
  */
 -(void) inviteUserToGroup:(NSString*) inviteUserName
-                GroupName:(NSString*) toGroupName
+                GroupId:(NSString*) toGroupid
                   success:(void (^)())success
                   failure:(void (^)(IMErrorType failType))failure;
 
