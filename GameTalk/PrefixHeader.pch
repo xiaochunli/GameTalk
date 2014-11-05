@@ -1,0 +1,19 @@
+//
+//  PrefixHeader.pch
+//  GameTalk
+//
+//  Created by Wang Li on 14-10-24.
+//  Copyright (c) 2014年 Wang Li. All rights reserved.
+//
+
+#ifndef GameTalk_PrefixHeader_pch
+#define GameTalk_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <AVOSCloud/AVOSCloud.h>
+#import "APPCommonDefine.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "MBProManager.h"
+#endif

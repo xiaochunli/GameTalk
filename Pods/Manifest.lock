@@ -1,0 +1,52 @@
+PODS:
+  - AFNetworking (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.4.1)
+  - AFNetworking/Security (2.4.1)
+  - AFNetworking/Serialization (2.4.1)
+  - AFNetworking/UIKit (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - AVOSCloud (2.6.7)
+  - AVOSCloudSNS (2.6.7):
+    - AVOSCloud
+  - MBProgressHUD (0.9)
+  - OpenCV (2.4.9.1)
+  - pop (1.0.7)
+  - SVProgressHUD (1.0)
+  - TouchJSON (1.1)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AVOSCloud
+  - AVOSCloudSNS
+  - MBProgressHUD
+  - OpenCV
+  - pop
+  - SVProgressHUD
+  - TouchJSON
+
+SPEC CHECKSUMS:
+  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  AVOSCloud: b9b7123e576d9d4a30d912e52a100a2561f841dd
+  AVOSCloudSNS: ba0c5167dd43e565f80b3331a2f169d42feeec13
+  MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
+  OpenCV: 4190ad68e79e1b9ae7ac53d749e96e8c05041e45
+  pop: 2f14a1ea61339767af9e66741b418c831b3844df
+  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
+  TouchJSON: b40940e40e53bb9b1ad60c63e01ed83bff93d53e
+
+COCOAPODS: 0.34.4

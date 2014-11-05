@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A4E5A1E19FF402F0035B9DD /* MBProManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E5A1D19FF402F0035B9DD /* MBProManager.m */; };
+		2A4E5A2419FF446C0035B9DD /* IMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E5A2319FF446C0035B9DD /* IMTableViewController.m */; };
+		2AD9F12619F7A77100BDD5B7 /* AVOS_IM_Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD9F12519F7A77100BDD5B7 /* AVOS_IM_Manager.m */; };
+		2AD9F12C19F9F8E100BDD5B7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD9F12B19F9F8E100BDD5B7 /* LoginViewController.m */; };
+		2AD9F13019F9F8FC00BDD5B7 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD9F12F19F9F8FC00BDD5B7 /* RegistViewController.m */; };
+		2AE1E5CD1A00EF2900471626 /* CommonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE1E5CC1A00EF2900471626 /* CommonManager.m */; };
+		2AE81FDE19F796E600C7F026 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE81FDD19F796E600C7F026 /* main.m */; };
+		2AE81FE119F796E600C7F026 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE81FE019F796E600C7F026 /* AppDelegate.m */; };
+		2AE81FE419F796E600C7F026 /* GameTalk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2AE81FE219F796E600C7F026 /* GameTalk.xcdatamodeld */; };
+		2AE81FEA19F796E600C7F026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AE81FE819F796E600C7F026 /* Main.storyboard */; };
+		2AE81FEC19F796E600C7F026 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AE81FEB19F796E600C7F026 /* Images.xcassets */; };
+		2AE81FEF19F796E600C7F026 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AE81FED19F796E600C7F026 /* LaunchScreen.xib */; };
+		2AE81FFB19F796E700C7F026 /* GameTalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE81FFA19F796E700C7F026 /* GameTalkTests.m */; };
+		9AA2516062DF427A8D63B389 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C075F15585426E9211AE6C /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2AE81FF519F796E700C7F026 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AE81FD019F796E600C7F026 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2AE81FD719F796E600C7F026;
+			remoteInfo = GameTalk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2A4E5A1C19FF402F0035B9DD /* MBProManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProManager.h; sourceTree = "<group>"; };
+		2A4E5A1D19FF402F0035B9DD /* MBProManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProManager.m; sourceTree = "<group>"; };
+		2A4E5A2219FF446C0035B9DD /* IMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTableViewController.h; sourceTree = "<group>"; };
+		2A4E5A2319FF446C0035B9DD /* IMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTableViewController.m; sourceTree = "<group>"; };
+		2AD9F12419F7A77100BDD5B7 /* AVOS_IM_Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVOS_IM_Manager.h; sourceTree = "<group>"; };
+		2AD9F12519F7A77100BDD5B7 /* AVOS_IM_Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVOS_IM_Manager.m; sourceTree = "<group>"; };
+		2AD9F12719F7ACE000BDD5B7 /* APPCommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPCommonDefine.h; sourceTree = "<group>"; };
+		2AD9F12A19F9F8E100BDD5B7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2AD9F12B19F9F8E100BDD5B7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2AD9F12E19F9F8FC00BDD5B7 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		2AD9F12F19F9F8FC00BDD5B7 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		2AD9F13119F9F9B800BDD5B7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2AE1E5CB1A00EF2900471626 /* CommonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonManager.h; sourceTree = "<group>"; };
+		2AE1E5CC1A00EF2900471626 /* CommonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonManager.m; sourceTree = "<group>"; };
+		2AE81FD819F796E600C7F026 /* GameTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AE81FDC19F796E600C7F026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AE81FDD19F796E600C7F026 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2AE81FDF19F796E600C7F026 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2AE81FE019F796E600C7F026 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2AE81FE319F796E600C7F026 /* GameTalk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameTalk.xcdatamodel; sourceTree = "<group>"; };
+		2AE81FE919F796E600C7F026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2AE81FEB19F796E600C7F026 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2AE81FEE19F796E600C7F026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2AE81FF419F796E700C7F026 /* GameTalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameTalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AE81FF919F796E700C7F026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AE81FFA19F796E700C7F026 /* GameTalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameTalkTests.m; sourceTree = "<group>"; };
+		85B9FBF307B542DE960E7997 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B3C075F15585426E9211AE6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C04B91C5ED5389502542BCAF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2AE81FD519F796E600C7F026 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AA2516062DF427A8D63B389 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AE81FF119F796E700C7F026 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		120BB2D7DFC84BAC8414922F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3C075F15585426E9211AE6C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2AD9F11E19F7A66300BDD5B7 /* IM */ = {
+			isa = PBXGroup;
+			children = (
+				2AD9F12319F7A74200BDD5B7 /* Contorllers */,
+				2AD9F12219F7A6DB00BDD5B7 /* views */,
+			);
+			name = IM;
+			sourceTree = "<group>";
+		};
+		2AD9F12019F7A67D00BDD5B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2AD9F12119F7A69500BDD5B7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2A4E5A1C19FF402F0035B9DD /* MBProManager.h */,
+				2A4E5A1D19FF402F0035B9DD /* MBProManager.m */,
+				2AE1E5CB1A00EF2900471626 /* CommonManager.h */,
+				2AE1E5CC1A00EF2900471626 /* CommonManager.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		2AD9F12219F7A6DB00BDD5B7 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				2A4E5A2219FF446C0035B9DD /* IMTableViewController.h */,
+				2A4E5A2319FF446C0035B9DD /* IMTableViewController.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		2AD9F12319F7A74200BDD5B7 /* Contorllers */ = {
+			isa = PBXGroup;
+			children = (
+				2AD9F12419F7A77100BDD5B7 /* AVOS_IM_Manager.h */,
+				2AD9F12519F7A77100BDD5B7 /* AVOS_IM_Manager.m */,
+			);
+			name = Contorllers;
+			sourceTree = "<group>";
+		};
+		2AD9F12819F9F8BB00BDD5B7 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				2AD9F12919F9F8C500BDD5B7 /* views */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		2AD9F12919F9F8C500BDD5B7 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				2AD9F12A19F9F8E100BDD5B7 /* LoginViewController.h */,
+				2AD9F12B19F9F8E100BDD5B7 /* LoginViewController.m */,
+				2AD9F12E19F9F8FC00BDD5B7 /* RegistViewController.h */,
+				2AD9F12F19F9F8FC00BDD5B7 /* RegistViewController.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		2AE81FCF19F796E600C7F026 = {
+			isa = PBXGroup;
+			children = (
+				2AE81FDA19F796E600C7F026 /* GameTalk */,
+				2AE81FF719F796E700C7F026 /* GameTalkTests */,
+				2AE81FD919F796E600C7F026 /* Products */,
+				120BB2D7DFC84BAC8414922F /* Frameworks */,
+				E890517FD46613843BCF5F7B /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		2AE81FD919F796E600C7F026 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AE81FD819F796E600C7F026 /* GameTalk.app */,
+				2AE81FF419F796E700C7F026 /* GameTalkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2AE81FDA19F796E600C7F026 /* GameTalk */ = {
+			isa = PBXGroup;
+			children = (
+				2AD9F12819F9F8BB00BDD5B7 /* Account */,
+				2AD9F12119F7A69500BDD5B7 /* Utility */,
+				2AD9F12019F7A67D00BDD5B7 /* Model */,
+				2AD9F11E19F7A66300BDD5B7 /* IM */,
+				2AE81FDF19F796E600C7F026 /* AppDelegate.h */,
+				2AE81FE019F796E600C7F026 /* AppDelegate.m */,
+				2AE81FE819F796E600C7F026 /* Main.storyboard */,
+				2AE81FEB19F796E600C7F026 /* Images.xcassets */,
+				2AE81FED19F796E600C7F026 /* LaunchScreen.xib */,
+				2AE81FE219F796E600C7F026 /* GameTalk.xcdatamodeld */,
+				2AE81FDB19F796E600C7F026 /* Supporting Files */,
+			);
+			path = GameTalk;
+			sourceTree = "<group>";
+		};
+		2AE81FDB19F796E600C7F026 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2AE81FDC19F796E600C7F026 /* Info.plist */,
+				2AE81FDD19F796E600C7F026 /* main.m */,
+				2AD9F12719F7ACE000BDD5B7 /* APPCommonDefine.h */,
+				2AD9F13119F9F9B800BDD5B7 /* PrefixHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2AE81FF719F796E700C7F026 /* GameTalkTests */ = {
+			isa = PBXGroup;
+			children = (
+				2AE81FFA19F796E700C7F026 /* GameTalkTests.m */,
+				2AE81FF819F796E700C7F026 /* Supporting Files */,
+			);
+			path = GameTalkTests;
+			sourceTree = "<group>";
+		};
+		2AE81FF819F796E700C7F026 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2AE81FF919F796E700C7F026 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E890517FD46613843BCF5F7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85B9FBF307B542DE960E7997 /* Pods.debug.xcconfig */,
+				C04B91C5ED5389502542BCAF /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2AE81FD719F796E600C7F026 /* GameTalk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AE81FFE19F796E700C7F026 /* Build configuration list for PBXNativeTarget "GameTalk" */;
+			buildPhases = (
+				044A60DACE6B4F24A12726B8 /* Check Pods Manifest.lock */,
+				2AE81FD419F796E600C7F026 /* Sources */,
+				2AE81FD519F796E600C7F026 /* Frameworks */,
+				2AE81FD619F796E600C7F026 /* Resources */,
+				FCBBDB818D46498B801A0263 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GameTalk;
+			productName = GameTalk;
+			productReference = 2AE81FD819F796E600C7F026 /* GameTalk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2AE81FF319F796E700C7F026 /* GameTalkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AE8200119F796E700C7F026 /* Build configuration list for PBXNativeTarget "GameTalkTests" */;
+			buildPhases = (
+				2AE81FF019F796E700C7F026 /* Sources */,
+				2AE81FF119F796E700C7F026 /* Frameworks */,
+				2AE81FF219F796E700C7F026 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2AE81FF619F796E700C7F026 /* PBXTargetDependency */,
+			);
+			name = GameTalkTests;
+			productName = GameTalkTests;
+			productReference = 2AE81FF419F796E700C7F026 /* GameTalkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2AE81FD019F796E600C7F026 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Wang Li";
+				TargetAttributes = {
+					2AE81FD719F796E600C7F026 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = MHN3Z99BES;
+					};
+					2AE81FF319F796E700C7F026 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 2AE81FD719F796E600C7F026;
+					};
+				};
+			};
+			buildConfigurationList = 2AE81FD319F796E600C7F026 /* Build configuration list for PBXProject "GameTalk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2AE81FCF19F796E600C7F026;
+			productRefGroup = 2AE81FD919F796E600C7F026 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2AE81FD719F796E600C7F026 /* GameTalk */,
+				2AE81FF319F796E700C7F026 /* GameTalkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AE81FD619F796E600C7F026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AE81FEA19F796E600C7F026 /* Main.storyboard in Resources */,
+				2AE81FEF19F796E600C7F026 /* LaunchScreen.xib in Resources */,
+				2AE81FEC19F796E600C7F026 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AE81FF219F796E700C7F026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		044A60DACE6B4F24A12726B8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FCBBDB818D46498B801A0263 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AE81FD419F796E600C7F026 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A4E5A2419FF446C0035B9DD /* IMTableViewController.m in Sources */,
+				2AE81FE119F796E600C7F026 /* AppDelegate.m in Sources */,
+				2AD9F13019F9F8FC00BDD5B7 /* RegistViewController.m in Sources */,
+				2AE81FE419F796E600C7F026 /* GameTalk.xcdatamodeld in Sources */,
+				2AD9F12C19F9F8E100BDD5B7 /* LoginViewController.m in Sources */,
+				2A4E5A1E19FF402F0035B9DD /* MBProManager.m in Sources */,
+				2AE1E5CD1A00EF2900471626 /* CommonManager.m in Sources */,
+				2AE81FDE19F796E600C7F026 /* main.m in Sources */,
+				2AD9F12619F7A77100BDD5B7 /* AVOS_IM_Manager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2AE81FF019F796E700C7F026 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AE81FFB19F796E700C7F026 /* GameTalkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2AE81FF619F796E700C7F026 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2AE81FD719F796E600C7F026 /* GameTalk */;
+			targetProxy = 2AE81FF519F796E700C7F026 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2AE81FE819F796E600C7F026 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AE81FE919F796E600C7F026 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2AE81FED19F796E600C7F026 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AE81FEE19F796E600C7F026 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2AE81FFC19F796E700C7F026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2AE81FFD19F796E700C7F026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2AE81FFF19F796E700C7F026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85B9FBF307B542DE960E7997 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = GameTalk/PrefixHeader.pch;
+				INFOPLIST_FILE = GameTalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-TouchJSON\"",
+					"-framework",
+					"\"Foundation\"",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2AE8200019F796E700C7F026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C04B91C5ED5389502542BCAF /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = GameTalk/PrefixHeader.pch;
+				INFOPLIST_FILE = GameTalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-TouchJSON\"",
+					"-framework",
+					"\"Foundation\"",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2AE8200219F796E700C7F026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GameTalkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameTalk.app/GameTalk";
+			};
+			name = Debug;
+		};
+		2AE8200319F796E700C7F026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GameTalkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameTalk.app/GameTalk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AE81FD319F796E600C7F026 /* Build configuration list for PBXProject "GameTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AE81FFC19F796E700C7F026 /* Debug */,
+				2AE81FFD19F796E700C7F026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AE81FFE19F796E700C7F026 /* Build configuration list for PBXNativeTarget "GameTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AE81FFF19F796E700C7F026 /* Debug */,
+				2AE8200019F796E700C7F026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AE8200119F796E700C7F026 /* Build configuration list for PBXNativeTarget "GameTalkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AE8200219F796E700C7F026 /* Debug */,
+				2AE8200319F796E700C7F026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2AE81FE219F796E600C7F026 /* GameTalk.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2AE81FE319F796E600C7F026 /* GameTalk.xcdatamodel */,
+			);
+			currentVersion = 2AE81FE319F796E600C7F026 /* GameTalk.xcdatamodel */;
+			path = GameTalk.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2AE81FD019F796E600C7F026 /* Project object */;
+}
