@@ -46,7 +46,7 @@
 
 
 /*GroupRecord class
- 群组名称表
+ 群组邀请记录表
  */
 #define ObjectClass_GroupRecord @"GroupRecord"
 #define GroupRecord_FromUserName @"FromUserName"

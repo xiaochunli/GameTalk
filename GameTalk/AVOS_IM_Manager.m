@@ -77,6 +77,7 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
     //test
 //    [_session watchPeerIds:@[@"leonfeifei0"]];
     NSLog(@"%@",[_session watchedPeerIds]);
+    [self checkGroupRecordWhenInit];
     [self autoWatchJoinGroup:^{
         
     } failure:^{
@@ -665,6 +666,44 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
             }
         }else{
             qResult(QueryResult_Fail,nil);
+        }
+    }];
+}
+
+/**
+ *当session open 时候做整体check 群组的邀请记录
+ */
+-(void) checkGroupRecordWhenInit
+{
+    NSString* tGroupRecordCQL = [NSString stringWithFormat:@"select * from %@ where %@='%@'",ObjectClass_GroupRecord,GroupRecord_RecUserName,m_AVUser.username];
+    [AVQuery doCloudQueryInBackgroundWithCQL:tGroupRecordCQL callback:^(AVCloudQueryResult *result, NSError *error) {
+        if (error == nil) {
+            for (AVObject* tRecord in result.results) {
+                NSString* tGroupIdStr = [tRecord objectForKey:GroupRecord_GroupId];
+                NSString* tRealGroupCQL = [NSString stringWithFormat:@"select * from %@ where %@='%@'",ObjectClass_RealtimeGroups,Object_Id,tGroupIdStr];
+                [AVQuery doCloudQueryInBackgroundWithCQL:tRealGroupCQL callback:^(AVCloudQueryResult *result, NSError *error) {
+                    if (error == nil) {
+                        if ([result.results count] == 1) {
+                            AVObject* tUserWatchs = [AVObject objectWithClassName:ObjectClass_UserWatchs];
+                            [tUserWatchs setObject:m_AVUser.username forKey:UserWatchs_KeyUserName];
+                            [tUserWatchs setObject:[result.results lastObject] forKey:UserWatchs_KeyWatchGroup];
+                            [tUserWatchs saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                if (succeeded) {
+                                    if (error == nil) {
+                                    }else{
+                                        NSLog(@"%s save table %@ error",__PRETTY_FUNCTION__,ObjectClass_UserWatchs);
+                                    }
+                                }else{
+                                    NSLog(@"%s save table %@ error",__PRETTY_FUNCTION__,ObjectClass_UserWatchs);                                }
+                            }];
+                        }
+                    }else{
+                        NSLog(@"%s query table %@ error",__PRETTY_FUNCTION__,ObjectClass_RealtimeGroups);
+                    }
+                }];
+            }
+        }else{
+            NSLog(@"%s query table %@ error",__PRETTY_FUNCTION__,ObjectClass_GroupRecord);
         }
     }];
 }

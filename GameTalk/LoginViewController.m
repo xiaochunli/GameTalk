@@ -15,10 +15,14 @@
     
     __weak IBOutlet UITextField *passwordField;
     __weak IBOutlet UITextField *userNameField;
+    __weak IBOutlet UIButton *_loginBtt;
 }
 -(void) viewDidLoad
 {
     userNameField.text =[[NSUserDefaults standardUserDefaults] objectForKey:KEY_USERNAME];
+//    NSDictionary *viewsDictionary = @{@"view":_loginBtt};
+//    NSArray* HConts = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[view]-0-|" options:0 metrics:nil views:viewsDictionary];
+//    [self.view addConstraints:HConts];
 }
 
 -(IBAction) loginBttPressed:(id)sender
