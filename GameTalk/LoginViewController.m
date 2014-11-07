@@ -15,7 +15,6 @@
     
     __weak IBOutlet UITextField *passwordField;
     __weak IBOutlet UITextField *userNameField;
-    __weak IBOutlet UIButton *_loginBtt;
 }
 -(void) viewDidLoad
 {

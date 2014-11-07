@@ -149,7 +149,7 @@ typedef enum{
 /**
  *当session open 时候做整体check 群组的邀请记录
  */
--(void) checkGroupRecordWhenInit;
+-(void) checkGroupRecord;
 
 /**
  *查看用户所有的会话

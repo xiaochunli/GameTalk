@@ -77,7 +77,7 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
     //test
 //    [_session watchPeerIds:@[@"leonfeifei0"]];
     NSLog(@"%@",[_session watchedPeerIds]);
-    [self checkGroupRecordWhenInit];
+    [self checkGroupRecord];
     [self autoWatchJoinGroup:^{
         
     } failure:^{
@@ -156,6 +156,12 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
     NSLog(@"group:(AVGroup *)group didReceiveEvent:(AVMessage *)message type = %d  peers =%@",(int)event,[peerIds description]);
     UIAlertView* tAlert =[[UIAlertView alloc] initWithTitle:@"group event" message:[NSString stringWithFormat:@"type =%d ,peers =%@",(int)event,[peerIds description]] delegate:nil cancelButtonTitle:@"close" otherButtonTitles: nil];
     [tAlert show];
+    if(event == AVGroupEventSelfJoined){
+        //在线收到邀请
+        [self checkGroupRecord];
+        AVGroup* tExistGroup = [AVGroup getGroupWithGroupId:group.groupId session:_session];
+        [tExistGroup join];
+    }
 }
 - (void)group:(AVGroup *)group messageSendFinished:(AVMessage *)message
 {
@@ -673,28 +679,55 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
 /**
  *当session open 时候做整体check 群组的邀请记录
  */
--(void) checkGroupRecordWhenInit
+-(void) checkGroupRecord
 {
     NSString* tGroupRecordCQL = [NSString stringWithFormat:@"select * from %@ where %@='%@'",ObjectClass_GroupRecord,GroupRecord_RecUserName,m_AVUser.username];
+    //查询所有跟自己有关未处理的记录
     [AVQuery doCloudQueryInBackgroundWithCQL:tGroupRecordCQL callback:^(AVCloudQueryResult *result, NSError *error) {
         if (error == nil) {
             for (AVObject* tRecord in result.results) {
                 NSString* tGroupIdStr = [tRecord objectForKey:GroupRecord_GroupId];
                 NSString* tRealGroupCQL = [NSString stringWithFormat:@"select * from %@ where %@='%@'",ObjectClass_RealtimeGroups,Object_Id,tGroupIdStr];
+                //查询被邀请的组是否存在
                 [AVQuery doCloudQueryInBackgroundWithCQL:tRealGroupCQL callback:^(AVCloudQueryResult *result, NSError *error) {
                     if (error == nil) {
                         if ([result.results count] == 1) {
-                            AVObject* tUserWatchs = [AVObject objectWithClassName:ObjectClass_UserWatchs];
-                            [tUserWatchs setObject:m_AVUser.username forKey:UserWatchs_KeyUserName];
-                            [tUserWatchs setObject:[result.results lastObject] forKey:UserWatchs_KeyWatchGroup];
-                            [tUserWatchs saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                                if (succeeded) {
-                                    if (error == nil) {
-                                    }else{
-                                        NSLog(@"%s save table %@ error",__PRETTY_FUNCTION__,ObjectClass_UserWatchs);
-                                    }
+                            AVObject* tWatchGroupObject = [result.results lastObject];
+                            //是否已经有关注记录
+                            NSString* tUserWatchCQL = [NSString stringWithFormat:@"select count(*) from %@ where %@='%@' and %@=pointer('%@','%@')",ObjectClass_UserWatchs,UserWatchs_KeyUserName,m_AVUser.username,UserWatchs_KeyWatchGroup,ObjectClass_RealtimeGroups,tWatchGroupObject.objectId];
+                            [AVQuery doCloudQueryInBackgroundWithCQL:tUserWatchCQL callback:^(AVCloudQueryResult *result, NSError *error) {
+                                if (result.count == 0 && error == nil) {
+                                    //没有关注过添加一条
+                                    AVObject* tUserWatchs = [AVObject objectWithClassName:ObjectClass_UserWatchs];
+                                    [tUserWatchs setObject:m_AVUser.username forKey:UserWatchs_KeyUserName];
+                                    [tUserWatchs setObject:tWatchGroupObject forKey:UserWatchs_KeyWatchGroup];
+                                    [tUserWatchs saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                        if (succeeded) {
+                                            if (error == nil) {
+                                                //删除GroupRecord 邀请记录
+                                                [tRecord deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                                    if (succeeded && error == nil) {
+                                                        
+                                                    }else{
+                                                        NSLog(@"%s delete GroupRecord table %@ error",__PRETTY_FUNCTION__,ObjectClass_UserWatchs);
+                                                    }
+                                                }];
+                                            }else{
+                                                NSLog(@"%s save table %@ error",__PRETTY_FUNCTION__,ObjectClass_UserWatchs);
+                                            }
+                                        }else{
+                                            NSLog(@"%s save table %@ error",__PRETTY_FUNCTION__,ObjectClass_UserWatchs);                                }
+                                    }];
                                 }else{
-                                    NSLog(@"%s save table %@ error",__PRETTY_FUNCTION__,ObjectClass_UserWatchs);                                }
+                                    //关注记录已经存在直接删除 GroupRecord 表记录
+                                    [tRecord deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                        if (succeeded && error == nil) {
+                                            
+                                        }else{
+                                            NSLog(@"%s delete GroupRecord table %@ error",__PRETTY_FUNCTION__,ObjectClass_UserWatchs);
+                                        }
+                                    }];
+                                }
                             }];
                         }
                     }else{
