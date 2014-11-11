@@ -20,6 +20,7 @@
 		2AE81FEC19F796E600C7F026 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AE81FEB19F796E600C7F026 /* Images.xcassets */; };
 		2AE81FEF19F796E600C7F026 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AE81FED19F796E600C7F026 /* LaunchScreen.xib */; };
 		2AE81FFB19F796E700C7F026 /* GameTalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE81FFA19F796E700C7F026 /* GameTalkTests.m */; };
+		813917AF1A0CAF3900000841 /* IMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813917AE1A0CAF3900000841 /* IMRootViewController.m */; };
 		9AA2516062DF427A8D63B389 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C075F15585426E9211AE6C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		2AE81FF419F796E700C7F026 /* GameTalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameTalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AE81FF919F796E700C7F026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AE81FFA19F796E700C7F026 /* GameTalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameTalkTests.m; sourceTree = "<group>"; };
+		813917AD1A0CAF3900000841 /* IMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRootViewController.h; sourceTree = "<group>"; };
+		813917AE1A0CAF3900000841 /* IMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRootViewController.m; sourceTree = "<group>"; };
 		85B9FBF307B542DE960E7997 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C075F15585426E9211AE6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04B91C5ED5389502542BCAF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 			children = (
 				2A4E5A2219FF446C0035B9DD /* IMTableViewController.h */,
 				2A4E5A2319FF446C0035B9DD /* IMTableViewController.m */,
+				813917AD1A0CAF3900000841 /* IMRootViewController.h */,
+				813917AE1A0CAF3900000841 /* IMRootViewController.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				2A4E5A1E19FF402F0035B9DD /* MBProManager.m in Sources */,
 				2AE1E5CD1A00EF2900471626 /* CommonManager.m in Sources */,
 				2AE81FDE19F796E600C7F026 /* main.m in Sources */,
+				813917AF1A0CAF3900000841 /* IMRootViewController.m in Sources */,
 				2AD9F12619F7A77100BDD5B7 /* AVOS_IM_Manager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

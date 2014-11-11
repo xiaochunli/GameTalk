@@ -19,6 +19,7 @@
     BOOL      _IsNeedInitFriendGroup;//是否本界面重新初始化下
     
     NSArray*  _AttentionArr;//关注的所有的东西
+    
 }
 
 -(id) initWithCoder:(NSCoder *)aDecoder

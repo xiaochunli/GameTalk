@@ -39,7 +39,7 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
         NSLog(@"AVUser object is null");
         return;
     }
-    [AVGroup setDefaultDelegate:self];
+    
     if([_session isOpen]){
         _session = [AVSession  getSessionWithPeerId:m_AVUser.username];
     }else if (_session == nil) {
@@ -70,12 +70,9 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
 #pragma mark AVSessionDelegate
 - (void)sessionOpened:(AVSession *)session
 {
-    NSLog(@"sessionOpened");
+    NSLog(@"%s",__PRETTY_FUNCTION__);
     
-    //自动加入已关注的组
-    
-    //test
-//    [_session watchPeerIds:@[@"leonfeifei0"]];
+    [AVGroup setDefaultDelegate:self];
     NSLog(@"%@",[_session watchedPeerIds]);
     [self checkGroupRecord];
     [self autoWatchJoinGroup:^{
