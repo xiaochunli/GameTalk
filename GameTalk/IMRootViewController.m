@@ -54,27 +54,33 @@
 {
     
 }
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIImageView* tHeaderImg = (UIImageView*)[cell.contentView viewWithTag:11];
+    UILabel* tUnreadLab = (UILabel*) [cell.contentView viewWithTag:10];
+    UILabel* tRoomLab = (UILabel*) [cell.contentView viewWithTag:12];
+    UILabel* tLastDataLab = (UILabel*) [cell.contentView viewWithTag:13];
+    tUnreadLab.layer.cornerRadius = 10.5;
+    tUnreadLab.layer.masksToBounds = YES;
+}
 #pragma mark-
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 10;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)IntableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString* tChatCellName = @"chatCell";
-    UITableViewCell*  tCell = [tableView dequeueReusableCellWithIdentifier:tChatCellName];
+    static NSString* tChatCellName = @"recentcell";
+    UITableViewCell*  tCell = [IntableView dequeueReusableCellWithIdentifier:tChatCellName];
     if (tCell == nil) {
         NSLog(@"xib IMTableViewController error cell is nil");
     }else{
-        UIImageView* tHeaderImg = (UIImageView*)[tCell.contentView viewWithTag:11];
-        UILabel* tUnreadLab = (UILabel*) [tCell.contentView viewWithTag:10];
-        UILabel* tRoomLab = (UILabel*) [tCell.contentView viewWithTag:12];
-        UILabel* tLastDataLab = (UILabel*) [tCell.contentView viewWithTag:13];
+        
     }
     return tCell;
 }
