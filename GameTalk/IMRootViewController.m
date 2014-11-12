@@ -20,6 +20,10 @@
     __weak IBOutlet UIView *bottomView;
     __weak IBOutlet UIButton *bottomBttAll;
     __weak IBOutlet UITableView *tableView;
+    
+    NSArray*     _RecentArr;//最近联系人
+    NSArray*     _AllContactsArr;//所有联系人
+    NSArray*     _GroupArr;//群组数据
 }
 - (void)viewDidLoad{
     [bottomView addSubview:bottomBttRecent];

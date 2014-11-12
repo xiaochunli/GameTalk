@@ -1,4 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="GroupInfo" representedClassName="GroupInfo" syncable="YES">
+        <attribute name="groupId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="groupImg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="groupName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="membersRS" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GroupMembers" inverseName="gourpInfoRS" inverseEntity="GroupMembers" syncable="YES"/>
+    </entity>
+    <entity name="GroupMembers" representedClassName="GroupMembers" syncable="YES">
+        <attribute name="memberId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberImg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="gourpInfoRS" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GroupInfo" inverseName="membersRS" inverseEntity="GroupInfo" syncable="YES"/>
+    </entity>
+    <entity name="TalkRecord" representedClassName="TalkRecord" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fromUserName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="receiveTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="recordId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toGroupId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toUserName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sessionRS" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSession" inverseName="talkRecordRS" inverseEntity="UserSession" syncable="YES"/>
+    </entity>
+    <entity name="UserInfo" representedClassName="UserInfo" syncable="YES">
+        <attribute name="userArea" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userBlood" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userBorn" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="userCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userHeadImg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userPhoneNum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userPro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userSex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="userSign" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="UserSession" representedClassName="UserSession" syncable="YES">
+        <attribute name="sessionImg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionShow" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionTargetId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="talkRecordRS" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TalkRecord" inverseName="sessionRS" inverseEntity="TalkRecord" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UserInfo" positionX="-36" positionY="18" width="128" height="208"/>
+        <element name="GroupInfo" positionX="9" positionY="126" width="128" height="103"/>
+        <element name="TalkRecord" positionX="-18" positionY="54" width="128" height="163"/>
+        <element name="UserSession" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="GroupMembers" positionX="-18" positionY="90" width="128" height="118"/>
+    </elements>
 </model>

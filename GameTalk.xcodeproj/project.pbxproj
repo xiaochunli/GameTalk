@@ -21,6 +21,11 @@
 		2AE81FEF19F796E600C7F026 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AE81FED19F796E600C7F026 /* LaunchScreen.xib */; };
 		2AE81FFB19F796E700C7F026 /* GameTalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE81FFA19F796E700C7F026 /* GameTalkTests.m */; };
 		813917AF1A0CAF3900000841 /* IMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813917AE1A0CAF3900000841 /* IMRootViewController.m */; };
+		81CB3C841A1346A00003B628 /* UserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB3C831A1346A00003B628 /* UserSession.m */; };
+		81CB3C871A1346A10003B628 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB3C861A1346A10003B628 /* UserInfo.m */; };
+		81CB3C8A1A1346A10003B628 /* TalkRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB3C891A1346A10003B628 /* TalkRecord.m */; };
+		81CB3C8D1A1346A10003B628 /* GroupMembers.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB3C8C1A1346A10003B628 /* GroupMembers.m */; };
+		81CB3C901A1346A10003B628 /* GroupInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB3C8F1A1346A10003B628 /* GroupInfo.m */; };
 		9AA2516062DF427A8D63B389 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3C075F15585426E9211AE6C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +68,16 @@
 		2AE81FFA19F796E700C7F026 /* GameTalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameTalkTests.m; sourceTree = "<group>"; };
 		813917AD1A0CAF3900000841 /* IMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRootViewController.h; sourceTree = "<group>"; };
 		813917AE1A0CAF3900000841 /* IMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRootViewController.m; sourceTree = "<group>"; };
+		81CB3C821A1346A00003B628 /* UserSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSession.h; sourceTree = "<group>"; };
+		81CB3C831A1346A00003B628 /* UserSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSession.m; sourceTree = "<group>"; };
+		81CB3C851A1346A10003B628 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		81CB3C861A1346A10003B628 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		81CB3C881A1346A10003B628 /* TalkRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkRecord.h; sourceTree = "<group>"; };
+		81CB3C891A1346A10003B628 /* TalkRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkRecord.m; sourceTree = "<group>"; };
+		81CB3C8B1A1346A10003B628 /* GroupMembers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMembers.h; sourceTree = "<group>"; };
+		81CB3C8C1A1346A10003B628 /* GroupMembers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMembers.m; sourceTree = "<group>"; };
+		81CB3C8E1A1346A10003B628 /* GroupInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInfo.h; sourceTree = "<group>"; };
+		81CB3C8F1A1346A10003B628 /* GroupInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupInfo.m; sourceTree = "<group>"; };
 		85B9FBF307B542DE960E7997 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C075F15585426E9211AE6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04B91C5ED5389502542BCAF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +122,16 @@
 		2AD9F12019F7A67D00BDD5B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				81CB3C8E1A1346A10003B628 /* GroupInfo.h */,
+				81CB3C8F1A1346A10003B628 /* GroupInfo.m */,
+				81CB3C8B1A1346A10003B628 /* GroupMembers.h */,
+				81CB3C8C1A1346A10003B628 /* GroupMembers.m */,
+				81CB3C881A1346A10003B628 /* TalkRecord.h */,
+				81CB3C891A1346A10003B628 /* TalkRecord.m */,
+				81CB3C851A1346A10003B628 /* UserInfo.h */,
+				81CB3C861A1346A10003B628 /* UserInfo.m */,
+				81CB3C821A1346A00003B628 /* UserSession.h */,
+				81CB3C831A1346A00003B628 /* UserSession.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -372,15 +397,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81CB3C901A1346A10003B628 /* GroupInfo.m in Sources */,
 				2A4E5A2419FF446C0035B9DD /* IMTableViewController.m in Sources */,
 				2AE81FE119F796E600C7F026 /* AppDelegate.m in Sources */,
 				2AD9F13019F9F8FC00BDD5B7 /* RegistViewController.m in Sources */,
 				2AE81FE419F796E600C7F026 /* GameTalk.xcdatamodeld in Sources */,
+				81CB3C871A1346A10003B628 /* UserInfo.m in Sources */,
 				2AD9F12C19F9F8E100BDD5B7 /* LoginViewController.m in Sources */,
 				2A4E5A1E19FF402F0035B9DD /* MBProManager.m in Sources */,
 				2AE1E5CD1A00EF2900471626 /* CommonManager.m in Sources */,
 				2AE81FDE19F796E600C7F026 /* main.m in Sources */,
+				81CB3C841A1346A00003B628 /* UserSession.m in Sources */,
 				813917AF1A0CAF3900000841 /* IMRootViewController.m in Sources */,
+				81CB3C8D1A1346A10003B628 /* GroupMembers.m in Sources */,
+				81CB3C8A1A1346A10003B628 /* TalkRecord.m in Sources */,
 				2AD9F12619F7A77100BDD5B7 /* AVOS_IM_Manager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
