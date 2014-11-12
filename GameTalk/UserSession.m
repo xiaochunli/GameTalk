@@ -7,6 +7,7 @@
 //
 
 #import "UserSession.h"
+#import "TalkRecord.h"
 
 
 @implementation UserSession
@@ -16,6 +17,7 @@
 @dynamic sessionShow;
 @dynamic sessionTargetId;
 @dynamic sessionType;
+@dynamic sessionLastTime;
 @dynamic talkRecordRS;
 
 @end

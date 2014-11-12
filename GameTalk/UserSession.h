@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class TalkRecord;
 
 @interface UserSession : NSManagedObject
 
@@ -17,13 +18,14 @@
 @property (nonatomic, retain) NSString * sessionShow;
 @property (nonatomic, retain) NSString * sessionTargetId;
 @property (nonatomic, retain) NSNumber * sessionType;
+@property (nonatomic, retain) NSDate * sessionLastTime;
 @property (nonatomic, retain) NSSet *talkRecordRS;
 @end
 
 @interface UserSession (CoreDataGeneratedAccessors)
 
-- (void)addTalkRecordRSObject:(NSManagedObject *)value;
-- (void)removeTalkRecordRSObject:(NSManagedObject *)value;
+- (void)addTalkRecordRSObject:(TalkRecord *)value;
+- (void)removeTalkRecordRSObject:(TalkRecord *)value;
 - (void)addTalkRecordRS:(NSSet *)values;
 - (void)removeTalkRecordRS:(NSSet *)values;
 
