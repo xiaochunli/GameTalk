@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     [AVLogger setLoggerLevelMask:AVLoggerLevelNone];
     [AVLogger addLoggerDomain:AVLoggerDomainIM];
     [AVLogger addLoggerDomain:AVLoggerDomainCURL];

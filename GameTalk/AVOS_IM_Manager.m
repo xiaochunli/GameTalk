@@ -91,7 +91,7 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
 //    } failure:^(IMErrorType failType) {
 //        
 //    }];
-//    [self addWatchPerson:@"leonfeifei0" success:^{
+//    [self addWatchPerson:@"leonfeifei1" success:^{
 //        
 //    } failure:^(IMErrorType failType) {
 //        
@@ -739,14 +739,36 @@ static AVOS_IM_Manager *    s_AVOSIMManager = nil;
 }
 
 /**
- *查看用户所有的会话 (unused)
+ *查询用户所有关注的对象(个人+群组)
+ @Param lastDate 上次本地更新时间
  */
--(void) getUserAllWatchs:(void (^)(NSArray* allWatchsArr))success
-                 failure:(void (^)(IMErrorType failType))failure
+-(void) queryUserWatchedContacts:(NSDate*) lastDate
+                         success:(void (^)(NSArray* resultDataArr))success
+                         failure:(void (^)(IMErrorType failType))failure
 {
-    
+    if (m_AVUser == nil || [m_AVUser.username length] <= 0) {
+        NSLog(@"AVUser object is null");
+        return;
+    }
+    NSString* tCQLStr = nil;
+    if (lastDate == nil) {
+        tCQLStr = [NSString stringWithFormat:@"select include %@,include %@,* from %@ where %@='%@'",UserWatchs_KeyWatchUser,UserWatchs_KeyWatchGroup,ObjectClass_UserWatchs,UserWatchs_KeyUserName,m_AVUser.username];
+    }else{
+        NSDateFormatter* tDateformat = [[NSDateFormatter alloc] init];
+        [tDateformat setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+        NSString* tDateStr = [tDateformat stringFromDate:lastDate];
+        NSArray* tDateArr = [tDateStr componentsSeparatedByString:@" "];
+        tCQLStr = [NSString stringWithFormat:@"select include %@,include %@,* from %@ where %@ > date('%@T%@.000Z') and %@='%@'",UserWatchs_KeyWatchUser,UserWatchs_KeyWatchGroup,ObjectClass_UserWatchs,Object_UpdatedAt,tDateArr[0],tDateArr[1],UserWatchs_KeyUserName,m_AVUser.username];
+    }
+    [AVQuery doCloudQueryInBackgroundWithCQL:tCQLStr callback:^(AVCloudQueryResult *result, NSError *error) {
+        if (error == nil) {
+            success(result.results);
+        }else{
+            NSLog(@"%s error: %@",__PRETTY_FUNCTION__,error);
+            failure(IMErrorType_QueryFail);
+        }
+    }];
 }
-
 
 
 
