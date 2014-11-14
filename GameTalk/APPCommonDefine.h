@@ -15,11 +15,20 @@
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
+#define InstanceAPPDelegate (AppDelegate*)[UIApplication sharedApplication].delegate
+
 #define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 #define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 #define UIColorFromRGB(rgb) [UIColor colorWithRed:((rgb) & 0xFF0000 >> 16)/255.0 green:((rgb) & 0xFF00 >> 8)/255.0 blue:((rgb) & 0xFF)/255.0 alpha:1.0]
+
+//对象是否是XX class
+#ifndef OBJECT_IS
+#define OBJECT_IS(__Object__,__ClassName__) \
+([__Object__ isKindOfClass:__ClassName__])
+#endif
+
 
 //userdefault  保存KEY
 #define KEY_USERNAME @"KEY_USERNAME"

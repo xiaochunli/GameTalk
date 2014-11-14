@@ -15,8 +15,6 @@
 
 @implementation IMTableViewController
 {
-    AVUser*   _currentUser;
-    BOOL      _IsNeedInitFriendGroup;//是否本界面重新初始化下
     
     NSArray*  _AttentionArr;//关注的所有的东西
     
@@ -25,33 +23,15 @@
 -(id) initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
-        _IsNeedInitFriendGroup = YES;
     }
     return self;
 }
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    if ((_currentUser =[AVUser currentUser]) == nil) {
-        //需要登录
-        UIStoryboard *story = [UIStoryboard  storyboardWithName:@"Main" bundle:nil];
-        UINavigationController* tLoginNav = [story instantiateViewControllerWithIdentifier:IDentifierLoginRegist];
-        [self presentViewController:tLoginNav animated:YES completion:^{}];
-    }else{
-        AVOS_IM_Manager* tIMManager = [AVOS_IM_Manager shareInstance];
-        tIMManager.m_AVUser =_currentUser;
-        [self initIMListView];
-    }
+
 }
 
--(void) initIMListView
-{
-    if (_IsNeedInitFriendGroup) {
-        _IsNeedInitFriendGroup = NO;
-        [[AVOS_IM_Manager shareInstance] openIMSession];
-
-    }
-}
 
 -(IBAction) inviteUser:(id)sender
 {

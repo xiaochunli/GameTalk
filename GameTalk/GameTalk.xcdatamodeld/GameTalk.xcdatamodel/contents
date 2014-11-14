@@ -23,6 +23,10 @@
         <attribute name="toUserName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="sessionRS" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSession" inverseName="talkRecordRS" inverseEntity="UserSession" syncable="YES"/>
     </entity>
+    <entity name="UpdateInfo" representedClassName="UpdateInfo" syncable="YES">
+        <attribute name="groupInfoDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="userInfoDate" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <entity name="UserInfo" representedClassName="UserInfo" syncable="YES">
         <attribute name="userArea" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userBlood" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,6 +42,7 @@
     </entity>
     <entity name="UserSession" representedClassName="UserSession" syncable="YES">
         <attribute name="sessionImg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionLastTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="sessionName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sessionShow" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sessionTargetId" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,10 +50,11 @@
         <relationship name="talkRecordRS" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TalkRecord" inverseName="sessionRS" inverseEntity="TalkRecord" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserInfo" positionX="-36" positionY="18" width="128" height="208"/>
-        <element name="GroupInfo" positionX="9" positionY="126" width="128" height="103"/>
-        <element name="TalkRecord" positionX="-18" positionY="54" width="128" height="163"/>
-        <element name="UserSession" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="GroupMembers" positionX="-18" positionY="90" width="128" height="118"/>
+        <element name="GroupInfo" positionX="90" positionY="27" width="128" height="105"/>
+        <element name="GroupMembers" positionX="349" positionY="44" width="128" height="118"/>
+        <element name="TalkRecord" positionX="333" positionY="-190" width="128" height="163"/>
+        <element name="UpdateInfo" positionX="108" positionY="-45" width="128" height="75"/>
+        <element name="UserInfo" positionX="-92" positionY="-180" width="128" height="208"/>
+        <element name="UserSession" positionX="97" positionY="-162" width="128" height="148"/>
     </elements>
 </model>

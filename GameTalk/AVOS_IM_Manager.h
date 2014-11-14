@@ -18,6 +18,8 @@ typedef enum{
 typedef enum{
     IMErrorType_SessionNotOpen = 5, //会话未建立
     
+    IMErrorType_QueryFail, //查询失败
+    
     IMErrorType_CreateGroupNameSaveFail =10,//创建的组--保存失败
     IMErrorType_CreateGroupNameExist,   //创建的组 -- 存在
     IMErrorType_CreateGroupNameQueryFail, //创建的组 -- 查询失败
@@ -96,6 +98,15 @@ typedef enum{
               success:(void (^)())success
               failure:(void (^)(IMErrorType failType))failure;
 
+
+/**
+ *查询用户所有关注的对象(个人+群组)
+ @Param lastDate 上次本地更新时间
+ */
+-(void) queryUserWatchedContacts:(NSDate*) lastDate
+                         success:(void (^)(NSArray* resultDataArr))success
+                         failure:(void (^)(IMErrorType failType))failure;
+
 /**
  *创建一个组并且起个名字
  @Param name 群组名称
@@ -146,16 +157,7 @@ typedef enum{
                   success:(void (^)())success
                   failure:(void (^)(IMErrorType failType))failure;
 
-/**
- *当session open 时候做整体check 群组的邀请记录
- */
--(void) checkGroupRecord;
 
-/**
- *查看用户所有的会话
- */
--(void) getUserAllWatchs:(void (^)(NSArray* allWatchsArr))success
-                 failure:(void (^)(IMErrorType failType))failure;
 @end
 
 
