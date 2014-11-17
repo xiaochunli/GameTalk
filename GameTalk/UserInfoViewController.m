@@ -18,6 +18,10 @@
 @end
 
 @implementation UserInfoViewController
+{
+    UIImagePickerController *       _imagePickerController;
+    QBImagePickerController *       _QBimagePickController;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +31,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) dealloc
+{
+    _imagePickerController.delegate = nil;
+    _QBimagePickController.delegate = nil;
 }
 
 /*
@@ -52,6 +62,7 @@
 }
 
 -(void) DoImageEdit:(UIImage*)souceImg
+            thumImg:(UIImage*)tImg
 {
     DemoImageEditor* tImageEditController =[[DemoImageEditor alloc] initWithNibName:@"DemoImageEditor" bundle:nil];
     tImageEditController.checkBounds =YES;
@@ -91,10 +102,13 @@
                 [alert show];
                 return;
             }else{
-                UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-                imagePickerController.delegate = self;
-                imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-                [self presentViewController:imagePickerController animated:YES completion:^{
+                if (_imagePickerController == nil) {
+                    _imagePickerController = [[UIImagePickerController alloc] init];
+                    _imagePickerController.delegate = self;
+                    _imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    
+                }
+                [self presentViewController:_imagePickerController animated:NO completion:^{
                     
                 }];
             }
@@ -117,9 +131,12 @@
                 NSLog(@"Error: Source is not accessible.");
                 return;
             }
-            QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
-            imagePickerController.delegate = self;
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
+            if (_QBimagePickController == nil) {
+                _QBimagePickController = [[QBImagePickerController alloc] init];
+                _QBimagePickController.delegate = self;
+            }
+
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:_QBimagePickController];
             [self presentViewController:navigationController animated:YES completion:NULL];
         }
             break;
@@ -144,7 +161,7 @@
     [self dismissViewControllerAnimated:YES completion:^{
         if (image) {
             UIImage *scaledImage = [image resizedImageToFitInSize:CGSizeMake(1080, 1920) scaleIfSmaller:NO];
-            [self DoImageEdit:scaledImage];
+            [self DoImageEdit:scaledImage thumImg:nil];
         }
     }];
 }
@@ -154,7 +171,11 @@
 
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(ALAsset *)asset
 {
-    
+    UIImage* tThumImg = [UIImage imageWithCGImage:[asset thumbnail]];
+    UIImage *tFullImg = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self DoImageEdit:tFullImg thumImg:tThumImg];
+    }];
 }
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAssets:(NSArray *)assets
 {
