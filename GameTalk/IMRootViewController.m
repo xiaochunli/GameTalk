@@ -63,9 +63,11 @@ typedef enum ShowStatus{
         UINavigationController* tLoginNav = [story instantiateViewControllerWithIdentifier:IDentifierLoginRegist];
         [self presentViewController:tLoginNav animated:YES completion:^{}];
     }else{
-        AVOS_IM_Manager* tIMManager = [AVOS_IM_Manager shareInstance];
-        tIMManager.m_AVUser =_currentUser;
-        [self initIMListView];
+        if ([_currentUser signUp]) {
+            AVOS_IM_Manager* tIMManager = [AVOS_IM_Manager shareInstance];
+            tIMManager.m_AVUser =_currentUser;
+            [self initIMListView];
+        }
     }
 }
 

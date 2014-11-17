@@ -22,6 +22,11 @@
 		2AE81FFB19F796E700C7F026 /* GameTalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE81FFA19F796E700C7F026 /* GameTalkTests.m */; };
 		813917AF1A0CAF3900000841 /* IMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813917AE1A0CAF3900000841 /* IMRootViewController.m */; };
 		81929FBB1A19955900FC5BF1 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81929FBA1A19955900FC5BF1 /* UserInfoViewController.m */; };
+		81929FBE1A19BB2E00FC5BF1 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 81929FBD1A19BB2E00FC5BF1 /* UIImage+Resize.m */; };
+		81929FC61A19DAA000FC5BF1 /* HFImageEditorFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81929FC21A19DAA000FC5BF1 /* HFImageEditorFrameView.m */; };
+		81929FC71A19DAA000FC5BF1 /* HFImageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81929FC51A19DAA000FC5BF1 /* HFImageEditorViewController.m */; };
+		81929FC91A19EEAB00FC5BF1 /* DemoImageEditor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81929FC81A19EEAB00FC5BF1 /* DemoImageEditor.xib */; };
+		81929FCC1A19EEF600FC5BF1 /* DemoImageEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 81929FCB1A19EEF600FC5BF1 /* DemoImageEditor.m */; };
 		81BF5F591A14462B00BB3ECA /* CDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BF5F581A14462B00BB3ECA /* CDataManager.m */; };
 		81BF5F5C1A144DC200BB3ECA /* UpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BF5F5B1A144DC200BB3ECA /* UpdateInfo.m */; };
 		81CB3C871A1346A10003B628 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB3C861A1346A10003B628 /* UserInfo.m */; };
@@ -73,6 +78,16 @@
 		813917AE1A0CAF3900000841 /* IMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRootViewController.m; sourceTree = "<group>"; };
 		81929FB91A19955900FC5BF1 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		81929FBA1A19955900FC5BF1 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		81929FBC1A19BB2E00FC5BF1 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		81929FBD1A19BB2E00FC5BF1 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		81929FC11A19DAA000FC5BF1 /* HFImageEditorFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFImageEditorFrameView.h; sourceTree = "<group>"; };
+		81929FC21A19DAA000FC5BF1 /* HFImageEditorFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFImageEditorFrameView.m; sourceTree = "<group>"; };
+		81929FC31A19DAA000FC5BF1 /* HFImageEditorViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HFImageEditorViewController+Private.h"; sourceTree = "<group>"; };
+		81929FC41A19DAA000FC5BF1 /* HFImageEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFImageEditorViewController.h; sourceTree = "<group>"; };
+		81929FC51A19DAA000FC5BF1 /* HFImageEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFImageEditorViewController.m; sourceTree = "<group>"; };
+		81929FC81A19EEAB00FC5BF1 /* DemoImageEditor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoImageEditor.xib; sourceTree = "<group>"; };
+		81929FCA1A19EEF600FC5BF1 /* DemoImageEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoImageEditor.h; sourceTree = "<group>"; };
+		81929FCB1A19EEF600FC5BF1 /* DemoImageEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoImageEditor.m; sourceTree = "<group>"; };
 		81BF5F571A14462B00BB3ECA /* CDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataManager.h; sourceTree = "<group>"; };
 		81BF5F581A14462B00BB3ECA /* CDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataManager.m; sourceTree = "<group>"; };
 		81BF5F5A1A144DC200BB3ECA /* UpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateInfo.h; sourceTree = "<group>"; };
@@ -150,6 +165,8 @@
 		2AD9F12119F7A69500BDD5B7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				81929FBC1A19BB2E00FC5BF1 /* UIImage+Resize.h */,
+				81929FBD1A19BB2E00FC5BF1 /* UIImage+Resize.m */,
 				2A4E5A1C19FF402F0035B9DD /* MBProManager.h */,
 				2A4E5A1D19FF402F0035B9DD /* MBProManager.m */,
 				2AE1E5CB1A00EF2900471626 /* CommonManager.h */,
@@ -224,6 +241,7 @@
 		2AE81FDA19F796E600C7F026 /* GameTalk */ = {
 			isa = PBXGroup;
 			children = (
+				81929FBF1A19DA9200FC5BF1 /* ThirdPart */,
 				2AD9F12819F9F8BB00BDD5B7 /* Account */,
 				2AD9F12119F7A69500BDD5B7 /* Utility */,
 				2AD9F12019F7A67D00BDD5B7 /* Model */,
@@ -265,6 +283,29 @@
 				2AE81FF919F796E700C7F026 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		81929FBF1A19DA9200FC5BF1 /* ThirdPart */ = {
+			isa = PBXGroup;
+			children = (
+				81929FC01A19DAA000FC5BF1 /* ImageEditor */,
+			);
+			name = ThirdPart;
+			sourceTree = "<group>";
+		};
+		81929FC01A19DAA000FC5BF1 /* ImageEditor */ = {
+			isa = PBXGroup;
+			children = (
+				81929FCA1A19EEF600FC5BF1 /* DemoImageEditor.h */,
+				81929FCB1A19EEF600FC5BF1 /* DemoImageEditor.m */,
+				81929FC81A19EEAB00FC5BF1 /* DemoImageEditor.xib */,
+				81929FC11A19DAA000FC5BF1 /* HFImageEditorFrameView.h */,
+				81929FC21A19DAA000FC5BF1 /* HFImageEditorFrameView.m */,
+				81929FC31A19DAA000FC5BF1 /* HFImageEditorViewController+Private.h */,
+				81929FC41A19DAA000FC5BF1 /* HFImageEditorViewController.h */,
+				81929FC51A19DAA000FC5BF1 /* HFImageEditorViewController.m */,
+			);
+			path = ImageEditor;
 			sourceTree = "<group>";
 		};
 		E890517FD46613843BCF5F7B /* Pods */ = {
@@ -362,6 +403,7 @@
 				2AE81FEA19F796E600C7F026 /* Main.storyboard in Resources */,
 				2AE81FEF19F796E600C7F026 /* LaunchScreen.xib in Resources */,
 				2AE81FEC19F796E600C7F026 /* Images.xcassets in Resources */,
+				81929FC91A19EEAB00FC5BF1 /* DemoImageEditor.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,12 +459,16 @@
 				2A4E5A2419FF446C0035B9DD /* IMTableViewController.m in Sources */,
 				2AE81FE119F796E600C7F026 /* AppDelegate.m in Sources */,
 				2AD9F13019F9F8FC00BDD5B7 /* RegistViewController.m in Sources */,
+				81929FBE1A19BB2E00FC5BF1 /* UIImage+Resize.m in Sources */,
 				81D1ACC31A135DD600B4E610 /* UserSession.m in Sources */,
+				81929FCC1A19EEF600FC5BF1 /* DemoImageEditor.m in Sources */,
 				2AE81FE419F796E600C7F026 /* GameTalk.xcdatamodeld in Sources */,
 				81CB3C871A1346A10003B628 /* UserInfo.m in Sources */,
+				81929FC61A19DAA000FC5BF1 /* HFImageEditorFrameView.m in Sources */,
 				2AD9F12C19F9F8E100BDD5B7 /* LoginViewController.m in Sources */,
 				2A4E5A1E19FF402F0035B9DD /* MBProManager.m in Sources */,
 				2AE1E5CD1A00EF2900471626 /* CommonManager.m in Sources */,
+				81929FC71A19DAA000FC5BF1 /* HFImageEditorViewController.m in Sources */,
 				2AE81FDE19F796E600C7F026 /* main.m in Sources */,
 				81BF5F5C1A144DC200BB3ECA /* UpdateInfo.m in Sources */,
 				813917AF1A0CAF3900000841 /* IMRootViewController.m in Sources */,

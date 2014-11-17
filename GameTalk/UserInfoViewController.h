@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserInfoViewController : UIViewController<QBImagePickerControllerDelegate>
+@interface UserInfoViewController : UIViewController
 
 @end
