@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "85C46C8044302CDE5494FD87"
+               BlueprintIdentifier = "325012AEE5117659F8C0E51D"
                BuildableName = "libPods-AVOSCloudSNS.a"
                BlueprintName = "Pods-AVOSCloudSNS"
                ReferencedContainer = "container:Pods.xcodeproj">

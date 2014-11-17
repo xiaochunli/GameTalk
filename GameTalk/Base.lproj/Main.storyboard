@@ -377,7 +377,21 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="列表" id="GPU-Zq-boO"/>
+                    <navigationItem key="navigationItem" title="列表" id="GPU-Zq-boO">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="QAZ-r7-YAf">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="krK-E3-Lgq">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="个人资料">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="elA-qK-pBu" kind="show" id="GL1-y5-RmI"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomBttAll" destination="Jb3-pW-h5i" id="ctN-Fj-qVh"/>
                         <outlet property="bottomBttGroup" destination="Y3m-iK-UEe" id="Nql-3j-Hze"/>
@@ -389,6 +403,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVG-oJ-LG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1240.5" y="-1025.25"/>
+        </scene>
+        <!--个人资料-->
+        <scene sceneID="pp0-tC-4XY">
+            <objects>
+                <viewController id="elA-qK-pBu" customClass="UserInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6bh-jJ-UCD"/>
+                        <viewControllerLayoutGuide type="bottom" id="ysm-TN-IIN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vJd-pq-EDb">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MAj-B5-lhc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="上传头像">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadHeadImg:" destination="elA-qK-pBu" eventType="touchUpInside" id="RKR-xp-4to"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MAj-B5-lhc" firstAttribute="leading" secondItem="vJd-pq-EDb" secondAttribute="leadingMargin" constant="10" id="F7b-B0-Bvu">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="MAj-B5-lhc" firstAttribute="top" secondItem="6bh-jJ-UCD" secondAttribute="bottom" constant="8" id="kUv-Sd-hhM">
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="MAj-B5-lhc" secondAttribute="trailing" constant="10" id="x9f-0I-MtG">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="MAj-B5-lhc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="F7b-B0-Bvu"/>
+                                <exclude reference="kUv-Sd-hhM"/>
+                                <exclude reference="x9f-0I-MtG"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="MAj-B5-lhc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="F7b-B0-Bvu"/>
+                                <include reference="kUv-Sd-hhM"/>
+                                <include reference="x9f-0I-MtG"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="个人资料" id="Fxp-WX-8Eo">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="fBA-MN-vcC">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FU8-YT-CJz">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="完成">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editDone:" destination="elA-qK-pBu" eventType="touchUpInside" id="NTL-BR-tVS"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAA-qC-BVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2191.5" y="-1451.25"/>
         </scene>
         <!--对话列表-->
         <scene sceneID="gOW-Av-umj">
@@ -473,7 +560,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MFL-Vm-vKo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2287.5" y="-1437.75"/>
+            <point key="canvasLocation" x="1255.5" y="-1694.25"/>
         </scene>
         <!--首页-->
         <scene sceneID="jAa-dr-pwU">

@@ -38,6 +38,9 @@ typedef enum ShowStatus{
     NSArray*                            _RecentArr;//最近联系人
     NSArray*                            _AllContactsArr;//所有联系人
     NSArray*                            _GroupArr;//群组数据
+    
+    NSMutableDictionary*                     _HeadImgBufferDic;//头像缓冲
+    
     AVUser*                             _currentUser;
     BOOL                                _IsNeedInitFriendGroup;//是否本界面重新初始化下
 }
@@ -46,6 +49,7 @@ typedef enum ShowStatus{
 {
     if (self = [super initWithCoder:aDecoder]) {
         _IsNeedInitFriendGroup = YES;
+        _HeadImgBufferDic= [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -85,7 +89,7 @@ typedef enum ShowStatus{
     [bottomView addConstraints:HConts];
     
     _NowStatus =SStatus_Recent;
-    
+    [self changeStatus:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -179,7 +183,9 @@ typedef enum ShowStatus{
  */
 -(IBAction)changeStatus:(UIButton*)sender
 {
+    [self readDataFromCoreData];
     switch (sender.tag) {
+        case 0://默认
         case 1://最近联系
         {
             

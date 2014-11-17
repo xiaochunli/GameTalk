@@ -26,6 +26,7 @@ PODS:
   - MBProgressHUD (0.9)
   - OpenCV (2.4.9.1)
   - pop (1.0.7)
+  - QBImagePickerController (2.2.2)
   - SVProgressHUD (1.0)
   - TouchJSON (1.1)
 
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - OpenCV
   - pop
+  - QBImagePickerController
   - SVProgressHUD
   - TouchJSON
 
@@ -46,6 +48,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   OpenCV: 4190ad68e79e1b9ae7ac53d749e96e8c05041e45
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
+  QBImagePickerController: f5498a84e86a171bf9266c91feb659bf9fc91f4b
   SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
   TouchJSON: b40940e40e53bb9b1ad60c63e01ed83bff93d53e
 

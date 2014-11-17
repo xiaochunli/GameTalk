@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-QBImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -49,50 +54,65 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>QBImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2CD538160E76C2844EDFE207</key>
+		<key>1F97391553B3F05960D1A7A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>32384823CA1EFF8D307394F0</key>
+		<key>29E04B11B3DD9C55565D2B60</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>56C40C61EC9CA897DEF9446D</key>
+		<key>325012AEE5117659F8C0E51D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7F77C2B6B878B2ECF171443F</key>
+		<key>3F301D5A375C5C60E5AFD793</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85C46C8044302CDE5494FD87</key>
+		<key>63B31CF00F7C55043C2483C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90C14566AA7280EE6F21FDAA</key>
+		<key>656A8297A1D27E5D153BC4A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D33C8CD179EA969716B6CB5</key>
+		<key>6ED18972798E8CABBA8D5153</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E3BE320D0DC44C2B1A91F772</key>
+		<key>83283AD27C16AC9E79C238A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F9F141FC47EE5C17A65729CC</key>
+		<key>AF96EC2854F82957DC51CD0A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C159D10FC2CC44C7A99F9207</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F3161ADF3309A4187EC2F0BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

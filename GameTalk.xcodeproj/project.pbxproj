@@ -21,6 +21,7 @@
 		2AE81FEF19F796E600C7F026 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AE81FED19F796E600C7F026 /* LaunchScreen.xib */; };
 		2AE81FFB19F796E700C7F026 /* GameTalkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE81FFA19F796E700C7F026 /* GameTalkTests.m */; };
 		813917AF1A0CAF3900000841 /* IMRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813917AE1A0CAF3900000841 /* IMRootViewController.m */; };
+		81929FBB1A19955900FC5BF1 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81929FBA1A19955900FC5BF1 /* UserInfoViewController.m */; };
 		81BF5F591A14462B00BB3ECA /* CDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BF5F581A14462B00BB3ECA /* CDataManager.m */; };
 		81BF5F5C1A144DC200BB3ECA /* UpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BF5F5B1A144DC200BB3ECA /* UpdateInfo.m */; };
 		81CB3C871A1346A10003B628 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CB3C861A1346A10003B628 /* UserInfo.m */; };
@@ -70,6 +71,8 @@
 		2AE81FFA19F796E700C7F026 /* GameTalkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameTalkTests.m; sourceTree = "<group>"; };
 		813917AD1A0CAF3900000841 /* IMRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRootViewController.h; sourceTree = "<group>"; };
 		813917AE1A0CAF3900000841 /* IMRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRootViewController.m; sourceTree = "<group>"; };
+		81929FB91A19955900FC5BF1 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		81929FBA1A19955900FC5BF1 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		81BF5F571A14462B00BB3ECA /* CDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataManager.h; sourceTree = "<group>"; };
 		81BF5F581A14462B00BB3ECA /* CDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataManager.m; sourceTree = "<group>"; };
 		81BF5F5A1A144DC200BB3ECA /* UpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateInfo.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				2A4E5A2319FF446C0035B9DD /* IMTableViewController.m */,
 				813917AD1A0CAF3900000841 /* IMRootViewController.h */,
 				813917AE1A0CAF3900000841 /* IMRootViewController.m */,
+				81929FB91A19955900FC5BF1 /* UserInfoViewController.h */,
+				81929FBA1A19955900FC5BF1 /* UserInfoViewController.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				81CB3C8D1A1346A10003B628 /* GroupMembers.m in Sources */,
 				81CB3C8A1A1346A10003B628 /* TalkRecord.m in Sources */,
 				2AD9F12619F7A77100BDD5B7 /* AVOS_IM_Manager.m in Sources */,
+				81929FBB1A19955900FC5BF1 /* UserInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
